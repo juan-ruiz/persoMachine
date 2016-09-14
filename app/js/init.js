@@ -17,30 +17,41 @@ var ews = new EWS(username, password, host, options);
 // Get Mails
 var ewsFunction = 'FindItem';
 var ewsArgs = {
-    attributes: {
-        Traversal: 'Shallow'
-    },
-    ItemShape: {
-        BaseShape: 'IdOnly',
-        AdditionalProperties: {
-            FieldURI: {
-                attributes: {
-                    FieldURI: 'item:Subject'
-                }
-            }
+    "attributes": {
+    "Traversal": "Shallow"
+  },
+  "ItemShape": {
+    "BaseShape": "IdOnly",
+    "AdditionalProperties": {
+      "FieldURI": {
+        "attributes": {
+          "FieldURI": "item:Subject"
         }
-    },
-    ParentFolderIds: {
-        DistinguishedFolderId: {
-            attributes: {
-                Id: 'deleteditems'
-            }
-        }
+      }
     }
+  },
+  "ParentFolderIds": {
+    "DistinguishedFolderId": {
+      "attributes": {
+        "Id": "inbox"
+      }
+    }
+  },
+  "tns:QueryString": "subject:perso"
+};
+
+//Adding the necessary header to the soap request
+
+var ewsSoapHeader = {
+  't:RequestServerVersion': {
+    attributes: {
+      Version: "Exchange2010"
+    }
+  }
 };
 
 // query ews, print resulting JSON to console
-ews.run(ewsFunction, ewsArgs)
+ews.run(ewsFunction, ewsArgs, ewsSoapHeader)
   .then(result => {
     var container = document.getElementById("cont");
     container.innerHTML=JSON.stringify(result);
