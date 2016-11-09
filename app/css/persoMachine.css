@@ -1,0 +1,41 @@
+.tabs-left{
+  height: 100vh;
+}
+
+.main-tab{
+  width: 95%;
+}
+
+.requests-table{
+  max-height: 60vh;
+  border: 1px solid #ddd;
+  margin-bottom: 5vh;
+  overflow: auto;
+}
+
+
+
+.mail-sender{
+  color: #fff;
+  background: none ;
+  background-color: #75caeb;
+  margin: 0 ;
+  border-radius: 0px ;
+  border-width: 1px;
+  border-color: #75caeb;
+}
+
+.mail-request{
+  border-bottom: 1px solid #ddd;
+}
+
+.mail-request:last-child{
+  border-style: none;
+}
+
+.stb-info:nth-child(odd){
+  background-color: #fff;
+}
+.stb-info:nth-child(even){
+  background-color: #e5f5fb;
+}

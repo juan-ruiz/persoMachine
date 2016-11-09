@@ -1,5 +1,5 @@
 'use strict';
-const {BrowserWindow, app} = require('electron');
+const {BrowserWindow, app, ipcMain} = require('electron');
 
 
 //Microsoft exchange communication initialization
@@ -15,7 +15,7 @@ var ewsArgs = {
     "Traversal": "Shallow"
   },
   "ItemShape": {
-    "BaseShape": "IdOnly",
+    "BaseShape": "AllProperties",
     "AdditionalProperties": {
       "FieldURI": {
         "attributes": {
@@ -48,12 +48,11 @@ var ewsSoapHeader = {
 let mainWindow;
 app.on('ready', function() {
         mainWindow = new BrowserWindow({
-        height: 600,
-        width: 800
+        height: 1000,
+        width: 1000
     });
 
     mainWindow.loadURL('file://' + __dirname + '/app/index.html');
-
     // Run a "find item" function to retrieve all CSAT perso requests
     ews.run(ewsFunction, ewsArgs, ewsSoapHeader)
       .then(result => {
@@ -62,6 +61,12 @@ app.on('ready', function() {
       .catch(err => {
        mainWindow.webContents.send('csat-loaded',err.message);
       });
+
+
+    ipcMain.on('ab-request', (event, arg) => {
+      console.log(arg)  // prints "ping"
+      event.sender.send('ab-loaded', 'pong')
+    });
 });
 
 

@@ -1,4 +1,226 @@
-<h1>LOADED</h1>
-<div id="cont" class="container"></div>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.vertical-tabs.min.css">
+<link rel="stylesheet" type="text/css" href="css/persoMachine.css">
+
+
+<div class="col-xs-3"> <!-- required for floating -->
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs tabs-left"><!-- 'tabs-right' for right tabs -->
+    <li class="active"><a href="#canalsat-tab" data-toggle="tab">Canalsat</a></li>
+    <li><a href="#eutelsat-tab" data-toggle="tab">Eutelsat</a></li>
+    <li><a href="#abgroupe-tab" data-toggle="tab">AB Groupe</a></li>
+  </ul>
+</div>
+<div class="col-xs-9">
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane main-tab active" id="canalsat-tab">
+        <div class="row">
+          <h1>Canalsat perso requests</h1>
+        </div>
+
+        <div class="row requests-table container-fluid">
+
+          <div class="row mail-request">
+            <div class="col-xs-4 mail-sender">
+              <div>
+                  <br/>
+                  Pierre Foyang
+                  <br/>
+                  <br/>
+              </div>
+            </div>
+            <div class="col-xs-8 stbs-info">
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  TNTSAT
+                </div>
+                <div class="col-xs-4">
+                  0xAABBCCDDEE
+                </div>
+                <div class="col-xs-4">
+                  11/10/2016
+                </div>
+              </div>
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  TNTSAT
+                </div>
+                <div class="col-xs-4">
+                  0xAABBCCDDEE
+                </div>
+                <div class="col-xs-4">
+                  11/11/2016
+                </div>
+              </div>
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  TNTSAT
+                </div>
+                <div class="col-xs-4">
+                  0xAABBCCDDEE
+                </div>
+                <div class="col-xs-4">
+                  11/11/2016
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mail-request">
+            <div class="col-xs-4 mail-sender">
+              <div>
+                  <br/>
+                  Mohamed Fatri
+                  <br/>
+                  <br/>
+                  <br/>
+              </div>
+            </div>
+            <div class="col-xs-8 stbs-info">
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  CANALSAT
+                </div>
+                <div class="col-xs-4">
+                  0xEF342AD
+                </div>
+                <div class="col-xs-4">
+                  11/10/2016
+                </div>
+              </div>
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  CANALSAT
+                </div>
+                <div class="col-xs-4">
+                  0xEF342AD
+                </div>
+                <div class="col-xs-4">
+                  11/10/2016
+                </div>
+              </div>
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  CANALSAT
+                </div>
+                <div class="col-xs-4">
+                  0xAABBCCDDEE
+                </div>
+                <div class="col-xs-4">
+                  11/10/2016
+                </div>
+              </div>
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  CANALSAT
+                </div>
+                <div class="col-xs-4">
+                  0xAABBCCDDEE
+                </div>
+                <div class="col-xs-4">
+                  11/10/2016
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mail-request">
+            <div class="col-xs-4 mail-sender">
+              <div>
+                  Lilia Missaoui
+                  <br/>
+                  <br/>
+              </div>
+            </div>
+            <div class="col-xs-8 stbs-info">
+
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  CANALSAT
+                </div>
+                <div class="col-xs-4">
+                  0xAABBCCDDEE
+                </div>
+                <div class="col-xs-4">
+                  11/10/2016
+                </div>
+              </div>
+              <div class="row stb-info">
+                <div class="col-xs-4">
+                  CANALSAT
+                </div>
+                <div class="col-xs-4">
+                  0xAABBCCDDEE
+                </div>
+                <div class="col-xs-4">
+                  11/10/2016
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <form>
+              <div class="form-group">
+                  <label for="ticket-number">Ticket number</label>
+                  <input type="text" class="form-control" id="ticket-number-canalsat">
+              </div>
+              <div class="col-xs-6"><button id="send-perso-canalsat" class="btn btn-default" type="button">Send request to Exploit</button></div>
+              <div class="col-xs-6"><button id="send-mail-canalsat" class="btn btn-default" type="button">Send mail to customers</button></div>
+          </form>
+        </div>
+      </div>
+
+      <div class="tab-pane main-tab" id="eutelsat-tab">
+        <div class="row">
+          <h1>Eutelsat-Fransat perso requests</h1>
+        </div>
+        <div class="row requests-table" id="requests-table-eutelsat">
+
+        </div>
+        <div class="row">
+          <form>
+              <div class="form-group">
+                  <label for="ticket-number">Ticket number</label>
+                  <input type="text" class="form-control" id="ticket-number-eutelsat">
+              </div>
+              <div class="col-xs-6"><button id="send-perso-eutelsat" class="btn btn-default" type="button">Send request to Exploit</button></div>
+              <div class="col-xs-6"><button id="send-mail-eutelsat" class="btn btn-default" type="button">Send mail to customers</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="tab-pane main-tab" id="abgroupe-tab">
+        <div class="row">
+          <h1>AB-Groupe perso requests</h1>
+        </div>
+        <div class="row requests-table" id="requests-table-ab">
+
+        </div>
+        <div class="row">
+          <form>
+              <div class="form-group">
+                  <label for="ticket-number">Ticket number</label>
+                  <input type="text" class="form-control" id="ticket-number-ab">
+              </div>
+              <div class="col-xs-6"><button id="send-perso-ab" class="btn btn-default" type="button">Send request to Exploit</button></div>
+              <div class="col-xs-6"><button id="send-mail-ab" class="btn btn-default" type="button">Send mail to customers</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<!-- Latest compiled and minified JavaScript -->
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/persoMachine.js"></script>
+<script>if (window.module) module = window.module;</script>
