@@ -11,4 +11,17 @@ ipcRenderer.on('ab-loaded', (event, message) => {
   container.innerHTML=JSON.stringify(message);
 });
 
-ipcRenderer.send('ab-request', 'ping');
+document.getElementById("send-perso-canalsat").addEventListener("click", function(){
+
+});
+
+document.getElementById("send-mail-canalsat").addEventListener("click", function(){
+  let ticketNumCanalsat=document.getElementById("ticket-number-canalsat");
+  ipcRenderer.send("send-mail-canalsat",ticketNumCanalsat.value);
+  ticketNumCanalsat.disabled = true;
+});
+
+ipcRenderer.on('canalsat-mail-sent', (event, message) => {
+  let ticketNumCanalsat=document.getElementById("ticket-number-canalsat");
+  ticketNumCanalsat.disabled = false;
+});
