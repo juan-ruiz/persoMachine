@@ -9,7 +9,7 @@ const password = 'Password2014';
 const host = 'https://mobi.purpledrm.com/';
 const options = {};
 const ews = new EWS(username, password, host, options);
-const ewsFunction = 'FindItem';
+var ewsFunction = 'FindItem';
 var ewsArgs = {
     "attributes": {
     "Traversal": "Shallow"
@@ -31,7 +31,7 @@ var ewsArgs = {
       }
     }
   },
-  'tns:QueryString':'Subject:DemandePersoCSAT_201611'
+  'tns:QueryString':'Subject:DemandePersoCSAT_20161110'
 };
 
 //Adding the necessary header to the soap request
@@ -54,6 +54,34 @@ app.on('ready', function() {
 
     mainWindow.loadURL('file://' + __dirname + '/app/index.html');
     // Run a "find item" function to retrieve all CSAT perso requests
+    // ews.run(ewsFunction, ewsArgs, ewsSoapHeader)
+    //   .then(result => {
+    //    mainWindow.webContents.send('csat-loaded',result);
+    //   })
+    //   .catch(err => {
+    //    mainWindow.webContents.send('csat-loaded',err.message);
+    //   });
+
+
+    ipcMain.on('ab-request', (event, arg) => {
+      console.log(arg)  // prints "ping"
+      event.sender.send('ab-loaded', 'pong')
+    });
+
+    ewsFunction = "GetItem";
+    ewsArgs = {
+      "ItemShape": {
+        "BaseShape": "Default"
+      },
+      "ItemIds": {
+        "ItemId": {
+          "attributes": {
+            "Id": "AAMkAGU2ZWZhNTI0LTkzNWUtNDMzNC04Mjg1LWNhNjdmNDc5OWZlOQBGAAAAAABYY+zNqedRRZ4lG2qQfiLRBwA4f71TcsztQpJHHCzQeJxmAAABBzY8AAAIiL7IZqljRo+D4KtcnrUEAAAFLIgEAAA=",
+            "ChangeKey": "CQAAABYAAAAIiL7IZqljRo+D4KtcnrUEAAAFLXj7"
+          }
+        }
+      }
+    };
     ews.run(ewsFunction, ewsArgs, ewsSoapHeader)
       .then(result => {
        mainWindow.webContents.send('csat-loaded',result);
@@ -62,11 +90,8 @@ app.on('ready', function() {
        mainWindow.webContents.send('csat-loaded',err.message);
       });
 
+    //Adding the necessary header to the soap request
 
-    ipcMain.on('ab-request', (event, arg) => {
-      console.log(arg)  // prints "ping"
-      event.sender.send('ab-loaded', 'pong')
-    });
 });
 
 
