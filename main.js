@@ -114,7 +114,7 @@ app.on('ready', function() {
         "Items" : {
           "Message" : {
             "Subject" : "[Ticket 011234 - CANAL SATELLITE] [ORAS][BBX]Demande de personnalisation OTA-20161111",
-            "Body" : "Bonjour, \n Votre demande perso a été prise en compte, vous povez trouver le numero de ticket en sujet, Cordialement",
+            "Body" : "Bonjour, Votre demande perso a été prise en compte, vous povez trouver le numero de ticket en sujet, Cordialement",
             "ToRecipients" : {
               "Mailbox" : {
                 "EmailAddress" : "j.RUIZVILLA.ext@viaccess-orca.com"
@@ -123,6 +123,18 @@ app.on('ready', function() {
           }
         }
       };
+      // ewsArgs = { attributes: { MessageDisposition: 'SendAndSaveCopy' },
+      //  SavedItemFolderId: { DistinguishedFolderId: { attributes: { Id: 'sentitems' } } },
+      //  Items:
+      //   { Message:
+      //      { ItemClass: 'IPM.Note',
+      //        Subject: 'EWS node email',
+      //         Body:
+      //         { '$value': 'This is <b>bold</b> - <b>Priority</b> - Update specification',
+      //           attributes: { BodyType: 'Text' } },
+      //        ToRecipients: { Mailbox: { EmailAddress: 'me@example.com' } },
+      //        IsRead: 'false' } } }
+      console.log("so we here fam!");
       ews.run(ewsFunction, ewsArgs, ewsSoapHeader)
         .then(result => {
          console.log("WE FUCKING DID IT");
