@@ -141,7 +141,7 @@ app.on('ready', function() {
          event.sender.send('canalsat-mail-sent',result);
         })
         .catch(err => {
-         console.log("yo colombian ass can do better fam!");
+         console.log(err.message);
          event.sender.send('canalsat-mail-sent',err.message);
         });
 
