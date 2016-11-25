@@ -114,7 +114,11 @@ app.on('ready', function() {
         "Items" : {
           "Message" : {
             "Subject" : "[Ticket 011234 - CANAL SATELLITE] [ORAS][BBX]Demande de personnalisation OTA-20161111",
-            "Body" : "Bonjour, Votre demande perso a été prise en compte, vous povez trouver le numero de ticket en sujet, Cordialement",
+            "Body" : 
+            {
+             "$value":"Bonjour, Votre demande perso a été prise en compte, vous povez trouver le numero de ticket en sujet, Cordialement",
+             "attributes": {"BodyType": "Text"}
+            },
             "ToRecipients" : {
               "Mailbox" : {
                 "EmailAddress" : "j.RUIZVILLA.ext@viaccess-orca.com"
@@ -138,6 +142,7 @@ app.on('ready', function() {
       ews.run(ewsFunction, ewsArgs, ewsSoapHeader)
         .then(result => {
          console.log("WE FUCKING DID IT");
+         console.log(result);
          event.sender.send('canalsat-mail-sent',result);
         })
         .catch(err => {
