@@ -116,13 +116,15 @@ app.on('ready', function() {
             "Subject" : "[Ticket 011234 - CANAL SATELLITE] [ORAS][BBX]Demande de personnalisation OTA-20161111",
             "Body" : 
             {
-             "$value":"Bonjour, Votre demande perso a été prise en compte, vous povez trouver le numero de ticket en sujet, Cordialement",
+             "$value":"Bonjour, Votre demande perso a été prise en compte,\n\n\nVous povez trouver le numero de ticket en sujet,\n\n\nCordialement",
              "attributes": {"BodyType": "Text"}
             },
             "ToRecipients" : {
               "Mailbox" : {
-                "EmailAddress" : "j.RUIZVILLA.ext@viaccess-orca.com"
+                "EmailAddress" : "j.RUIZVILLA.ext@viaccess-orca.com",
+
               }
+              
             }
           }
         }
